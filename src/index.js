@@ -8,7 +8,6 @@ import todoHeader from "./todoHeader";
 //Main body of page
 let content = document.querySelector('#content');
 let viewProjectsButton = document.querySelector('.allprojects');
-let createCategoryButton = document.querySelector('.create.category');
 
 //Container div that holds categories and todos
 let todos = document.createElement('div');
@@ -17,15 +16,19 @@ content.append(todos);
 let todoHead = todoHeader();
 todos.append(todoHead);
 
+//Starting category when site is opened
 let defaultCategory = createCategory();
-let categoryArray = [];
-
 todos.append(defaultCategory);
 
-createCategoryButton.addEventListener('click', function(){
-    let tmp = categoryForm();
-    while (todos.firstChild) {
-        todos.removeChild(todos.firstChild);
+let categoryArray = [];
+let categoryButton = document.querySelector('.category.button');
+
+categoryButton.addEventListener('click', function() {
+    let catForm = categoryForm();
+    
+    if (todos.children.length > 1) {
+        todos.removeChild(todos.lastChild);
     }
-    todos.appendChild(tmp);
+
+    todos.append(catForm);
 })
