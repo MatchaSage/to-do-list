@@ -13,6 +13,7 @@
     min-width: 100vw;
     height: 100vh;
     grid-template-columns: 1fr 9fr;
+    background-color: rgb(95, 95, 95);
 }
 
 .sidebar {
