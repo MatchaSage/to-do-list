@@ -3,6 +3,7 @@ import './style.css';
 import displayTodos from "./displayTodo";
 import createCategory from "./createCategory";
 import categoryForm from "./categoryForm";
+import todoHeader from "./todoHeader";
 
 //Main body of page
 let content = document.querySelector('#content');
@@ -13,6 +14,8 @@ let createCategoryButton = document.querySelector('.create.category');
 let todos = document.createElement('div');
 todos.className = 'tododiv';
 content.append(todos);
+let todoHead = todoHeader();
+todos.append(todoHead);
 
 let defaultCategory = createCategory();
 let categoryArray = [];
