@@ -19,6 +19,11 @@
 
 .sidebar {
     border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding-top: 20px;
     grid-column: 1 / 2;
     grid-row: 2 / 3;
 }
@@ -34,4 +39,62 @@
     border: 2px solid white;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
+}
+
+.new.category.button {
+    height: 5%;
+    width: 95%;
+}
+
+.category.container {
+    font-size: 1.4rem;
+}
+
+.category.list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    border-top: 1px solid yellow;
+}
+
+.header {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.todo.header {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 5px;
+    border: 1px solid yellow;
+}
+
+#newCategory {
+    visibility: hidden;
+    position: fixed;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    border: 2px solid green;
+    display: flex;
+    flex-direction: column;
+    font-size: 3rem;
+}
+
+#newTodo {
+    visibility: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    padding: 30px;
+    font-size: 1.3rem;
 }

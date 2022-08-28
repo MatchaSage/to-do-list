@@ -8,10 +8,33 @@
     <title>Todo List</title>
 </head>
 <body>
+    <form method="get" id="newCategory">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title">
+        <input type="submit" value="add category">
+        <button class="cancel category">Cancel</button>
+    </form>
+
+    <form method="get" id="newTodo">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" cols="30" rows="5"></textarea>
+        <label for="duedate">Duedate</label>
+        <input type="date" id="duedate" name="duedate">
+        <label for="priority">Priority</label>
+        <select name="priority" id="priority">
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+        </select>
+        <label for="finished">Finished</label>
+        <input type="checkbox" id="finished" name="finished">
+    </form>
+
     <div id="content">
-        <div class="header">To-Do List</div>
+        <div class="main header">To-Do List</div>
         <div class="sidebar">
-            <h1>Categories</h1>
             <button class="new category button">New Category</button>
             <h1>Your Categories</h1>
             <div class="category list">
@@ -19,7 +42,10 @@
             </div>
         </div>
         <div class="todo container">
-
+            <div class="todo header">
+                <p class="todo text">Todos</p>
+                <button class="new todo">New Todo</button>
+            </div>
         </div>
     </div>
     <script src="bundle.js"></script>
