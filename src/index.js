@@ -12,6 +12,8 @@ let todoForm = document.getElementById('newTodo');
 let cancelTodo = document.querySelector('.cancel.todo');
 let todoSubmit = document.getElementById('newTodo');
 let categorySubmit = document.getElementById('newCategory');
+//Sets current category for use later for selecting where to store created todos
+let currentCategory = document.querySelector('.category.Default');
 
 categorySubmit.addEventListener('submit', function(event) {
     event.preventDefault();
