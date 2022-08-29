@@ -3,8 +3,8 @@ export default function handleTodo() {
     let todoDescription = document.getElementById('todoDescription').value;
     let todoDuedate = document.getElementById('todoDuedate').value;
     let todoPriority = document.getElementById('todoPriority').value;
-    let todoFinished = document.getElementById('todoFinished').value;
-    
+    let todoFinished = document.getElementById('todoFinished').checked;
+
     return {
         todoTitle, 
         todoDescription, 
