@@ -1,18 +1,23 @@
 import './style.css';
 import displayCategories from "./displayCategories";
-import createCategory from "./createCategory";
 import handleTodo from "./handleTodo";
+import handleCategory from "./handleCategory";
 
 let newCategoryButton = document.querySelector('.new.category.button');
 let newTodoButton = document.querySelector('.new.todo');
-let defaultCategory = createCategory();
-displayCategories(defaultCategory);
 
 let cancelCategory = document.querySelector('.cancel.category');
 let categoryForm = document.getElementById('newCategory');
 let todoForm = document.getElementById('newTodo');
 let cancelTodo = document.querySelector('.cancel.todo');
 let todoSubmit = document.getElementById('newTodo');
+let categorySubmit = document.getElementById('newCategory');
+
+categorySubmit.addEventListener('submit', function(event) {
+    event.preventDefault();
+    let tmp = handleCategory();
+    displayCategories(tmp);
+})
 
 todoSubmit.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -47,7 +52,4 @@ newCategoryButton.addEventListener('click', function() {
     else {
         categoryForm.style.visibility = 'visible';
     }
-
-    let createdCategory = createCategory(newCategory);
-    displayCategories(createdCategory);
 })
