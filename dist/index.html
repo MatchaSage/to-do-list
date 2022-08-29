@@ -10,26 +10,30 @@
 <body>
     <form method="get" id="newCategory">
         <label for="title">Title</label>
-        <input type="text" id="title" name="title">
+        <input type="text" id="catTitle" name="title">
         <input type="submit" value="add category">
-        <button class="cancel category">Cancel</button>
+        <input type="button" class="cancel category" value="Cancel">
     </form>
 
     <form method="get" id="newTodo">
         <label for="title">Title</label>
-        <input type="text" id="title" name="title">
+        <input type="text" id="todoTitle" name="title">
         <label for="description">Description</label>
-        <textarea id="description" name="description" cols="30" rows="5"></textarea>
+        <textarea id="todoDescription" name="description" cols="30" rows="5"></textarea>
         <label for="duedate">Duedate</label>
-        <input type="date" id="duedate" name="duedate">
+        <input type="date" id="todoDuedate" name="duedate">
         <label for="priority">Priority</label>
-        <select name="priority" id="priority">
+        <select name="priority" id="todoPriority">
             <option value="high">High</option>
             <option value="medium">Medium</option>
             <option value="low">Low</option>
         </select>
-        <label for="finished">Finished</label>
-        <input type="checkbox" id="finished" name="finished">
+        <fieldset>
+            <label for="finished">Finished</label>
+            <input type="checkbox" id="todoFinished" name="finished">
+        </fieldset>
+        <input type="submit" value="Confirm">
+        <input type="button" class="cancel todo" value="Cancel">
     </form>
 
     <div id="content">
