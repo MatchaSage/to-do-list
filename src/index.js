@@ -2,6 +2,7 @@ import './style.css';
 import displayCategories from "./displayCategories";
 import handleTodo from "./handleTodo";
 import handleCategory from "./handleCategory";
+import displayTodos from "./displayTodo";
 
 let newCategoryButton = document.querySelector('.new.category.button');
 let newTodoButton = document.querySelector('.new.todo');
@@ -14,6 +15,7 @@ let todoSubmit = document.getElementById('newTodo');
 let categorySubmit = document.getElementById('newCategory');
 //Sets current category for use later for selecting where to store created todos
 let currentCategory = document.querySelector('.category.Default');
+let todoContainer = document.querySelector('.todo.container');
 
 categorySubmit.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -24,7 +26,8 @@ categorySubmit.addEventListener('submit', function(event) {
 todoSubmit.addEventListener('submit', function(event) {
     event.preventDefault();
     let tmp = handleTodo();
-    console.log(tmp)
+    let card = displayTodos(tmp);
+    todoContainer.append(card);
 })
 
 cancelTodo.addEventListener('click', function() {
