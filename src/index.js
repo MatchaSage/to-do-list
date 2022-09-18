@@ -3,6 +3,7 @@ import displayCategories from "./displayCategories";
 import handleTodo from "./handleTodo";
 import handleCategory from "./handleCategory";
 import displayTodos from "./displayTodo";
+import checkTodo from "./checkTodo";
 
 let newCategoryButton = document.querySelector('.new.category.button');
 let newTodoButton = document.querySelector('.new.todo');
@@ -15,8 +16,10 @@ let todoSubmit = document.getElementById('newTodo');
 let categorySubmit = document.getElementById('newCategory');
 //Sets current category for use later for selecting where to store created todos
 let currentCategory = document.querySelector('.category.Default');
-let todoContainer = document.querySelector('.todo.container');
-let todoContainerText = document.querySelector('.todo.text');
+let todoHeaderText = document.querySelector('.todo.text');
+let cardContainer = document.querySelector('.card.container');
+
+let todoArray = [];
 
 categorySubmit.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -28,7 +31,12 @@ categorySubmit.addEventListener('submit', function(event) {
     [...categoryList].forEach(category => {
         category.addEventListener('click', function() {
             currentCategory = category;
-            todoContainerText.textContent = category.textContent;
+            todoHeaderText.textContent = currentCategory.textContent;
+            
+            while (cardContainer.childNodes.length != 0) {
+                cardContainer.removeChild(cardContainer.lastChild);
+            }
+            console.log(todoArray);
         })
     })
 })
@@ -37,7 +45,10 @@ todoSubmit.addEventListener('submit', function(event) {
     event.preventDefault();
     let tmp = handleTodo();
     let card = displayTodos(tmp);
-    todoContainer.append(card);
+    //This is for sorting the todos into their respective categories
+    card.classList.add(currentCategory.textContent);
+    todoArray.push(card);
+    checkTodo(todoArray, currentCategory);
 })
 
 cancelTodo.addEventListener('click', function() {
