@@ -16,11 +16,21 @@ let categorySubmit = document.getElementById('newCategory');
 //Sets current category for use later for selecting where to store created todos
 let currentCategory = document.querySelector('.category.Default');
 let todoContainer = document.querySelector('.todo.container');
+let todoContainerText = document.querySelector('.todo.text');
 
 categorySubmit.addEventListener('submit', function(event) {
     event.preventDefault();
     let tmp = handleCategory();
     displayCategories(tmp);
+
+    let categoryList = document.querySelector('.category.list').children;
+    
+    [...categoryList].forEach(category => {
+        category.addEventListener('click', function() {
+            currentCategory = category;
+            todoContainerText.textContent = category.textContent;
+        })
+    })
 })
 
 todoSubmit.addEventListener('submit', function(event) {
