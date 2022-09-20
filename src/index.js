@@ -18,6 +18,7 @@ let categorySubmit = document.getElementById('newCategory');
 let currentCategory = document.querySelector('.category.Default');
 let todoHeaderText = document.querySelector('.todo.text');
 let cardContainer = document.querySelector('.card.container');
+let categoryList = document.querySelector('.category.list').children;
 
 let todoArray = [];
 
@@ -26,7 +27,6 @@ categorySubmit.addEventListener('submit', function(event) {
     let tmp = handleCategory();
     displayCategories(tmp);
 
-    let categoryList = document.querySelector('.category.list').children;
     
     [...categoryList].forEach(category => {
         category.addEventListener('click', function() {
@@ -36,7 +36,7 @@ categorySubmit.addEventListener('submit', function(event) {
             while (cardContainer.childNodes.length != 0) {
                 cardContainer.removeChild(cardContainer.lastChild);
             }
-            console.log(todoArray);
+            checkTodo(todoArray, currentCategory);
         })
     })
 })
