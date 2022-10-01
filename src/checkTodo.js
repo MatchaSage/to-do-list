@@ -5,12 +5,9 @@ export default function checkTodo(todoArray, currentCategory) {
     
     todoArray.forEach(todo => {
         let splitTodo = todo.className.split(' ')[1];
-        console.log(splitTodo, splitCategory);
         
         if (splitCategory == splitTodo) {
             cardContainer.append(todo);
         }
     })
-    // console.log(todoArray);
-    // console.log(currentCategory.className);
 }

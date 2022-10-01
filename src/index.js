@@ -19,6 +19,7 @@ let currentCategory = document.querySelector('.category.Default');
 let todoHeaderText = document.querySelector('.todo.text');
 let cardContainer = document.querySelector('.card.container');
 let categoryList = document.querySelector('.category.list').children;
+let delTodoButton = document.createElement('button');
 
 let todoArray = [];
 
