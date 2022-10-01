@@ -23,9 +23,9 @@ export default function displayTodos(todoObject) {
     finishedContainer.textContent = `Finished: ${todoObject.todoFinished}`;
 
     let delTodoButton = document.createElement('button');
-    delTodoButton.classList.add('delTodoButton')
+    delTodoButton.classList.add('delete', 'todo')
     delTodoButton.textContent = 'Delete'
     todoDiv.append(titleContainer, descriptConatiner, duedateContainer, priorityContainer, finishedContainer, delTodoButton);
-
+    
     return todoDiv;
 }
