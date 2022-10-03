@@ -24,6 +24,15 @@ let categoryList = document.querySelector('.category.list').children;
 let todoArray = [];
 let cardArray = [];
 
+document.body.addEventListener( 'click', function (event) {
+    if( event.target.className == 'delete todo' ) {
+        let cardIndex = cardArray.indexOf(event.target.parentNode)
+        deleteTodo(cardArray, todoArray, cardIndex)
+        checkTodo(cardArray, currentCategory)
+    };
+});
+
+
 categorySubmit.addEventListener('submit', function(event) {
     event.preventDefault();
     let tmp = handleCategory();
@@ -35,25 +44,9 @@ categorySubmit.addEventListener('submit', function(event) {
             currentCategory = category;
             todoHeaderText.textContent = currentCategory.textContent;
             
-            // while (cardContainer.childNodes.length != 0) {
-            //     cardContainer.removeChild(cardContainer.lastChild);
-            // }
             checkTodo(cardArray, currentCategory);
-
-            let deleteTodoButton = document.querySelectorAll('.delete.todo');
-    
-            deleteTodoButton.forEach(delButton => {
-                delButton.addEventListener('click', function() {
-                    let cardIndex = cardArray.indexOf(this.parentNode)
-
-                    cardArray.splice(cardIndex, 1);
-                    todoArray.splice(cardIndex, 1);
-                    checkTodo(cardArray, currentCategory);
-                })
-            })
         })
     })
-    // deleteTodo(cardArray, todoArray);
 })
 
 todoSubmit.addEventListener('submit', function(event) {
@@ -65,23 +58,6 @@ todoSubmit.addEventListener('submit', function(event) {
     cardArray.push(card)
     todoArray.push(todoObject);
     checkTodo(cardArray, currentCategory);
-    // deleteTodo(cardArray, todoArray);
-
-    let deleteTodoButton = document.querySelectorAll('.delete.todo');
-    
-    deleteTodoButton.forEach(delButton => {
-        delButton.addEventListener('click', function() {
-            let cardIndex = cardArray.indexOf(this.parentNode)
-            console.log('hello')
-
-            deleteTodo(cardArray, todoArray, cardIndex);
-            console.log(cardArray, todoArray)
-
-            // cardArray.splice(cardIndex, 1);
-            // todoArray.splice(cardIndex, 1);
-            checkTodo(cardArray, currentCategory);
-        })
-    })
 })
 
 cancelTodo.addEventListener('click', function() {
