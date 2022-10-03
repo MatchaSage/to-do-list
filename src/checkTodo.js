@@ -1,9 +1,13 @@
 let cardContainer = document.querySelector('.card.container');
 
-export default function checkTodo(todoArray, currentCategory) {
+export default function checkTodo(cardArray, currentCategory) {
     let splitCategory = currentCategory.className.split(' ')[1];
     
-    todoArray.forEach(todo => {
+    while (cardContainer.childNodes.length != 0) {
+        cardContainer.removeChild(cardContainer.lastChild);
+    }
+    
+    cardArray.forEach(todo => {
         let splitTodo = todo.className.split(' ')[1];
         
         if (splitCategory == splitTodo) {

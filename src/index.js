@@ -4,7 +4,7 @@ import handleTodo from "./handleTodo";
 import handleCategory from "./handleCategory";
 import displayTodos from "./displayTodo";
 import checkTodo from "./checkTodo";
-import selectDeleteButton from './selectDeletebutton';
+import deleteTodo from './deleteTodo';
 
 let newCategoryButton = document.querySelector('.new.category.button');
 let newTodoButton = document.querySelector('.new.todo');
@@ -22,7 +22,7 @@ let cardContainer = document.querySelector('.card.container');
 let categoryList = document.querySelector('.category.list').children;
 
 let todoArray = [];
-
+let cardArray = [];
 
 categorySubmit.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -35,13 +35,13 @@ categorySubmit.addEventListener('submit', function(event) {
             currentCategory = category;
             todoHeaderText.textContent = currentCategory.textContent;
             
-            while (cardContainer.childNodes.length != 0) {
-                cardContainer.removeChild(cardContainer.lastChild);
-            }
-            checkTodo(todoArray, currentCategory);
+            // while (cardContainer.childNodes.length != 0) {
+            //     cardContainer.removeChild(cardContainer.lastChild);
+            // }
+            checkTodo(cardArray, currentCategory);
         })
     })
-    selectDeleteButton(todoArray);
+    // deleteTodo(cardArray, todoArray);
 })
 
 todoSubmit.addEventListener('submit', function(event) {
@@ -50,9 +50,10 @@ todoSubmit.addEventListener('submit', function(event) {
     let card = displayTodos(todoObject);
     //This is for sorting the todos into their respective categories
     card.classList.add(currentCategory.textContent);
-    todoArray.push(card);
-    checkTodo(todoArray, currentCategory);
-    selectDeleteButton(todoArray);
+    cardArray.push(card)
+    todoArray.push(todoObject);
+    checkTodo(cardArray, currentCategory);
+    // deleteTodo(cardArray, todoArray);
 })
 
 cancelTodo.addEventListener('click', function() {
