@@ -3,7 +3,7 @@ export default function selectDeleteButton(todoArray) {
 
     deleteTodoButton.forEach(delButton => {
         delButton.addEventListener('click', function() {
-            console.log(todoArray)
+            console.log(this.parentNode)
         })
     })
 }

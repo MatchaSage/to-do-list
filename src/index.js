@@ -46,8 +46,8 @@ categorySubmit.addEventListener('submit', function(event) {
 
 todoSubmit.addEventListener('submit', function(event) {
     event.preventDefault();
-    let tmp = handleTodo();
-    let card = displayTodos(tmp);
+    let todoObject = handleTodo();
+    let card = displayTodos(todoObject);
     //This is for sorting the todos into their respective categories
     card.classList.add(currentCategory.textContent);
     todoArray.push(card);
