@@ -25,8 +25,12 @@ export default function displayTodos(todoObject) {
     let delTodoButton = document.createElement('button');
     delTodoButton.classList.add('delete', 'todo')
     delTodoButton.textContent = 'Delete'
+
+    let editTodoButton = document.createElement('button');
+    editTodoButton.textContent = 'Edit'
+    editTodoButton.classList.add('editTodo');
     
-    todoDiv.append(titleContainer, descriptConatiner, duedateContainer, priorityContainer, finishedContainer, delTodoButton);
+    todoDiv.append(titleContainer, descriptConatiner, duedateContainer, priorityContainer, finishedContainer, delTodoButton, editTodoButton);
     
     return todoDiv;
 }

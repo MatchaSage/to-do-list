@@ -5,6 +5,7 @@ import handleCategory from "./handleCategory";
 import displayTodos from "./displayTodo";
 import checkTodo from "./checkTodo";
 import deleteTodo from './deleteTodo';
+import editTodo from "./editTodo"
 
 let newCategoryButton = document.querySelector('.new.category.button');
 let newTodoButton = document.querySelector('.new.todo');
@@ -29,6 +30,13 @@ document.body.addEventListener( 'click', function (event) {
         let cardIndex = cardArray.indexOf(event.target.parentNode)
         deleteTodo(cardArray, todoArray, cardIndex)
         checkTodo(cardArray, currentCategory)
+    }
+})
+
+document.body.addEventListener('click', function(event) {
+    if(event.target.className == 'editTodo') {
+        console.log('haha')
+        editTodo(todoArray, cardArray);
     }
 })
 
