@@ -25,12 +25,12 @@ let todoArray = [];
 let cardArray = [];
 
 document.body.addEventListener( 'click', function (event) {
-    if( event.target.className == 'delete todo' ) {
+    if(event.target.className == 'delete todo') {
         let cardIndex = cardArray.indexOf(event.target.parentNode)
         deleteTodo(cardArray, todoArray, cardIndex)
         checkTodo(cardArray, currentCategory)
-    };
-});
+    }
+})
 
 
 categorySubmit.addEventListener('submit', function(event) {
