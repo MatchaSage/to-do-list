@@ -35,8 +35,7 @@ document.body.addEventListener( 'click', function (event) {
 
 document.body.addEventListener('click', function(event) {
     if(event.target.className == 'editTodo') {
-        console.log('haha')
-        editTodo(todoArray, cardArray);
+        editTodo(todoArray, cardArray, event.target);
     }
 })
 
