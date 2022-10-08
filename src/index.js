@@ -39,6 +39,12 @@ document.body.addEventListener('click', function(event) {
     }
 })
 
+document.body.addEventListener('click', function(event) {
+    if(event.target.className == 'expandTodo') {
+        console.log(event.target.parentNode)
+        //Logic for expanding todos
+    }
+})
 
 categorySubmit.addEventListener('submit', function(event) {
     event.preventDefault();

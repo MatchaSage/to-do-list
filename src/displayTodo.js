@@ -29,7 +29,7 @@ export default function displayTodos(todoObject) {
     let editTodoButton = document.createElement('button');
     editTodoButton.textContent = 'Edit'
     editTodoButton.classList.add('editTodo');
-    
+
     todoDiv.append(titleContainer, descriptConatiner, duedateContainer, priorityContainer, finishedContainer, delTodoButton, editTodoButton);
     
     return todoDiv;
